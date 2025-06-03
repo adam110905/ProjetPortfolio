@@ -710,6 +710,7 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
+    background: var(--darker);
 }
 
 .content-container {
@@ -1358,6 +1359,7 @@ body {
     padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    background: var(--darker);
 }
 
 .veille p {
@@ -1795,156 +1797,254 @@ body {
 }
 
 /* ===========================================
-   SECTION CONTACT
+   NOUVELLE SECTION CONTACT REDESIGNÉE
    =========================================== */
 .contact {
     padding: 4rem 2rem;
     background: var(--darker);
+    min-height: auto;
 }
 
-.contact p {
-    color: var(--text-secondary);
+.contact .section-subtitle {
     text-align: center;
-    max-width: 800px;
-    margin: 0 auto 2rem;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-container {
-    max-width: 1200px;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 3rem;
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
-    border-radius: 1rem;
-    padding: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.info-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: rgba(15, 23, 42, 0.8);
+.contact .info-card {
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid var(--border);
-    border-radius: 0.75rem;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: block;
 }
 
-.info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1);
+.contact .info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+    transition: left 0.5s ease;
 }
 
-.info-icon {
-    width: 48px;
-    height: 48px;
+.contact .info-card:hover::before {
+    left: 100%;
+}
+
+.contact .info-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+}
+
+.contact .info-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right, var(--primary), var(--secondary));
-    border-radius: 0.5rem;
-}
-
-.icon {
-    width: 24px;
-    height: 24px;
-    stroke: var(--light);
-}
-
-.info-content h3 {
-    color: var(--light);
-    font-size: 1.1rem;
-    margin-bottom: 0.25rem;
-}
-
-.info-content p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin: 0;
-    text-align: left;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-group {
     position: relative;
 }
 
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    background: rgba(15, 23, 42, 0.8);
-    border: 1px solid var(--border);
-    border-radius: 0.75rem;
-    color: var(--light);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.form-group textarea {
-    height: 150px;
-    resize: vertical;
-}
-
-.form-group label {
+.contact .info-icon::after {
+    content: '';
     position: absolute;
-    left: 1rem;
-    top: 1rem;
-    color: var(--text-secondary);
-    transition: all 0.3s ease;
-    pointer-events: none;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary), var(--primary));
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+.contact .info-card:hover .info-icon::after {
+    opacity: 1;
 }
 
-.form-group input:focus ~ label,
-.form-group textarea:focus ~ label,
-.form-group input:valid ~ label,
-.form-group textarea:valid ~ label {
-    transform: translateY(-2.5rem);
-    font-size: 0.8rem;
-    color: var(--primary);
+.contact .info-icon .icon {
+    width: 40px;
+    height: 40px;
+    stroke: white;
+    stroke-width: 2;
 }
 
-.submit-btn {
-    padding: 1rem 2rem;
-    background: linear-gradient(to right, var(--primary), var(--secondary));
-    border: none;
-    border-radius: 0.75rem;
-    color: var(--light);
+.contact .info-content h3 {
+    font-size: 1.5rem;
     font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
+    margin-bottom: 0.8rem;
+    color: var(--text-primary);
+}
+
+.contact .info-content p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin: 0;
+}
+
+.contact-link {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: var(--secondary);
+}
+
+.social-section {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.social-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.submit-btn:hover {
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.social-link:hover::before {
+    opacity: 1;
+}
+
+.social-link:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+.social-link .icon {
+    width: 28px;
+    height: 28px;
+}
+
+.cta-section {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.cta-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.cta-text {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive pour la nouvelle section contact */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .contact .info-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 200px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact .info-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .contact .info-icon .icon {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 /* ===========================================
@@ -2266,3 +2366,4 @@ body {
     line-height: 1.6;
     font-size: 0.95rem;
 }
+
