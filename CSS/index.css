@@ -1228,10 +1228,7 @@ body {
     align-items: center;
     border-top: 1px solid var(--border);
     padding-top: 1rem;
-    gap: 1rem;
-    flex-wrap: wrap;
 }
-
 /* ===========================================
    SECTION STAGES
    =========================================== */
