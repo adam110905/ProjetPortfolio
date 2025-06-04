@@ -2020,8 +2020,6 @@ body {
     box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1);
     backdrop-filter: blur(10px);
     text-align: center;
-    margin-left: 1rem;
-    margin-right: 1rem;
 }
 
 .note-header {
