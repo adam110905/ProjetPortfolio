@@ -742,8 +742,8 @@ body {
 
 .content-container {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 4rem;
+    grid-template-columns: 1fr 1fr; /* Colonnes égales maintenant */
+    gap: 3rem; /* Réduction du gap pour plus de cohésion */
     align-items: start;
 }
 
@@ -782,7 +782,8 @@ body {
 .experiences-list {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem; /* Réduction du gap entre les expériences */
+    height: fit-content; /* S'assurer que la hauteur s'adapte au contenu */
 }
 
 .exp-card {
@@ -796,6 +797,7 @@ body {
     opacity: 0;
     transform: translateY(50px);
     animation: slideInUp 0.8s ease forwards;
+    min-height: 400px; /* Hauteur minimale pour uniformiser */
 }
 
 .exp-card:nth-child(1) { animation-delay: 0.2s; }
@@ -914,6 +916,10 @@ body {
     padding: clamp(1.5rem, 4vw, 2.5rem);
     position: relative;
     z-index: 2;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .exp-header-info {
@@ -975,11 +981,13 @@ body {
     line-height: 1.8;
     margin-bottom: 2rem;
     font-size: clamp(0.9rem, 2.5vw, 1rem);
+    flex-grow: 1;
 }
 
 .skills-section {
     border-top: 1px solid var(--border);
     padding-top: 1.5rem;
+    margin-top: auto;
 }
 
 .skills-title {
@@ -991,17 +999,19 @@ body {
 }
 
 /* ===========================================
-   SECTION PASSIONS
+   SECTION PASSIONS - AMÉLIORÉE
    =========================================== */
 .passions-section {
-    position: sticky;
-    top: 2rem;
+    /* Suppression du sticky pour un alignement naturel */
+    position: static;
+    height: fit-content;
 }
 
 .passions-grid {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem; /* Même gap que les expériences */
+    height: fit-content;
 }
 
 .passion-card {
@@ -1009,13 +1019,17 @@ body {
     backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     border-radius: 1.5rem;
-    padding: clamp(1.5rem, 4vw, 2rem);
+    padding: clamp(2rem, 4vw, 2.5rem); /* Padding augmenté */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
     opacity: 0;
     transform: translateX(50px);
     animation: slideInRight 0.8s ease forwards;
+    min-height: 180px; /* Hauteur minimale augmentée */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .passion-card:nth-child(1) { animation-delay: 0.6s; }
@@ -1064,14 +1078,14 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem; /* Espacement augmenté */
     position: relative;
     z-index: 1;
 }
 
 .passion-icon {
-    width: clamp(45px, 12vw, 55px);
-    height: clamp(45px, 12vw, 55px);
+    width: clamp(55px, 12vw, 65px); /* Taille augmentée */
+    height: clamp(55px, 12vw, 65px);
     border-radius: 1rem;
     display: flex;
     align-items: center;
@@ -1108,8 +1122,8 @@ body {
 }
 
 .passion-icon svg {
-    width: clamp(24px, 6vw, 28px);
-    height: clamp(24px, 6vw, 28px);
+    width: clamp(28px, 6vw, 32px); /* Taille augmentée */
+    height: clamp(28px, 6vw, 32px);
     stroke: white;
     stroke-width: 2.5;
     z-index: 1;
@@ -1118,16 +1132,42 @@ body {
 
 .passion-title {
     color: var(--light);
-    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-size: clamp(1.2rem, 3vw, 1.4rem); /* Taille augmentée */
     font-weight: 600;
 }
 
 .passion-description {
     color: var(--text-secondary);
-    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
-    line-height: 1.7;
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem); /* Taille augmentée */
+    line-height: 1.8; /* Line-height augmenté */
     position: relative;
     z-index: 1;
+    flex-grow: 1;
+}
+
+/* Ajout de contenu supplémentaire pour les passions */
+.passion-extra {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.passion-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.passion-tag {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 1rem;
+    font-size: 0.7rem;
+    font-weight: 500;
 }
 
 /* ===========================================
@@ -1229,6 +1269,7 @@ body {
     border-top: 1px solid var(--border);
     padding-top: 1rem;
 }
+
 /* ===========================================
    SECTION STAGES
    =========================================== */
