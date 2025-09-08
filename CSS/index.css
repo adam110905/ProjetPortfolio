@@ -3535,7 +3535,7 @@ letter-spacing: 0.3px;
 /* Responsive pour mobile */
 @media (max-width: 768px) {
 .language-switch {
-    top: 15px;
+    top: 16px;
     right: 15px;
     padding: 0.6rem 1rem;
     font-size: 0.85rem;
@@ -3549,7 +3549,7 @@ letter-spacing: 0.3px;
 
 @media (max-width: 480px) {
 .language-switch {
-    top: 23.5px;
+    top: 24px;
     right: 10px;
     padding: 0.5rem 0.8rem;
     font-size: 0.8rem;
@@ -3607,4 +3607,5 @@ outline-offset: 2px;
     transform: scale(0.95);
 }
 }
+
 
