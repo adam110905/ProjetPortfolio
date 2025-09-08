@@ -3549,7 +3549,7 @@ letter-spacing: 0.3px;
 
 @media (max-width: 480px) {
 .language-switch {
-    top: 23px;
+    top: 23.5px;
     right: 10px;
     padding: 0.5rem 0.8rem;
     font-size: 0.8rem;
@@ -3607,3 +3607,4 @@ outline-offset: 2px;
     transform: scale(0.95);
 }
 }
+
