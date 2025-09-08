@@ -8,6 +8,58 @@
 </head>
 <body>
     <!-- ===========================================
+         NOTIFICATION POP-UP BILINGUE SOBRE
+         =========================================== -->
+    <div id="language-notification" class="language-notification">
+        <div class="notification-content">
+            <div class="notification-header">
+                <div class="notification-icon">
+                </div>
+                
+                <!-- Sélecteur de langue -->
+                <div class="language-selector">
+                    <button class="lang-btn active" data-lang="fr">
+                        <span class="flag-emoji">🇫🇷</span>
+                        <span>FR</span>
+                    </button>
+                    <button class="lang-btn" data-lang="en">
+                        <span class="flag-emoji">🇬🇧</span>
+                        <span>EN</span>
+                    </button>
+                </div>
+                
+                <button class="notification-close" data-action="close-notification">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="notification-body">
+                <div class="notification-title" data-lang-target="title">
+                    <span data-lang="fr">Version anglaise à venir</span>
+                    <span data-lang="en" style="display: none;">English version coming</span>
+                </div>
+                
+                <div class="notification-text" data-lang-target="text">
+                    <p data-lang="fr">Ce portfolio sera bientôt disponible en anglais pour une meilleure accessibilité internationale.</p>
+                    <p data-lang="en" style="display: none;">This portfolio will soon be available in English for better international accessibility.</p>
+                </div>
+            </div>
+            
+            <div class="notification-footer">
+                <button class="btn-dismiss" data-action="dismiss-notification">
+                    <span data-lang-target="dismiss">
+                        <span data-lang="fr">Compris</span>
+                        <span data-lang="en" style="display: none;">Got it</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===========================================
          BOUTON TOGGLE MOBILE
          =========================================== -->
     <button class="nav-toggle">
@@ -30,7 +82,7 @@
             <!-- Profil utilisateur -->
             <div class="profile">
                 <div class="avatar-container">
-                    <img src="./IMAGES/pdp.png" alt="Profile" class="avatar">
+                    <img src="./IMAGES/IMG_3031.jpeg" alt="Profile" class="avatar">
                     <div class="avatar-outline"></div>
                 </div>
                 <h2 class="name">BOUALI Adam</h2>
@@ -166,7 +218,6 @@
                                     <span>Wordpress</span>
                                 </div>
                             </div>
-                            
                             
                             <div class="profil-highlights">
                                 <h3>Soft Skills</h3>
@@ -970,9 +1021,8 @@
             </section>
             
             <!-- ===========================================
-                            SECTION CONTACT
-            =========================================== -->
-
+                 SECTION CONTACT
+                 =========================================== -->
             <section id="contact" class="contact">
                 <div class="section-content">
                     <h2 class="section-title">Restons en Contact</h2>
@@ -1096,6 +1146,7 @@
         // ===========================================
         let currentSection = 'home';
         let sidebarOpen = false;
+        let currentLang = 'fr'; // Langue par défaut
 
         // Sélecteurs DOM
         const navLinks = document.querySelectorAll('.nav-link');
@@ -1103,23 +1154,79 @@
         const body = document.body;
 
         // ===========================================
+        // NOTIFICATION BILINGUE
+        // ===========================================
+        function showLanguageNotification() {
+            const langNotification = document.getElementById('language-notification');
+            if (langNotification) {
+                setTimeout(() => {
+                    langNotification.classList.add('show');
+                }, 1500);
+            }
+        }
+
+        function closeLanguageNotification() {
+            const langNotification = document.getElementById('language-notification');
+            if (langNotification) {
+                langNotification.classList.remove('show');
+            }
+        }
+
+        function dismissLanguageNotification() {
+            closeLanguageNotification();
+        }
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Mettre à jour les boutons de langue
+            const langButtons = document.querySelectorAll('.lang-btn');
+            langButtons.forEach(btn => {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Mettre à jour tous les textes
+            const langTargets = document.querySelectorAll('[data-lang-target]');
+            langTargets.forEach(target => {
+                const langElements = target.querySelectorAll('[data-lang]');
+                langElements.forEach(element => {
+                    if (element.dataset.lang === lang) {
+                        element.style.display = '';
+                        // Animation d'apparition
+                        element.style.opacity = '0';
+                        element.style.transform = 'translateY(10px)';
+                        setTimeout(() => {
+                            element.style.transition = 'all 0.3s ease';
+                            element.style.opacity = '1';
+                            element.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        element.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // ===========================================
         // GESTION NAVIGATION ACTIVE
         // ===========================================
         function setActiveNavLink(sectionId) {
-            console.log('Setting active section:', sectionId); // Debug
+            console.log('Setting active section:', sectionId);
             
-            // Retirer l'état actif de tous les liens
             navLinks.forEach(link => {
                 link.classList.remove('active');
             });
             
-            // Activer le lien correspondant
             const activeLink = document.querySelector(`[data-section="${sectionId}"]`);
             if (activeLink) {
                 activeLink.classList.add('active');
-                console.log('Activated link for:', sectionId); // Debug
+                console.log('Activated link for:', sectionId);
             } else {
-                console.log('No link found for:', sectionId); // Debug
+                console.log('No link found for:', sectionId);
             }
         }
 
@@ -1130,7 +1237,6 @@
             const scrollPos = window.pageYOffset + 150;
             let current = 'home';
             
-            // Liste des sections dans l'ordre
             const sectionIds = ['home', 'profil', 'experiences', 'projects', 'stages', 'veille', 'synthese', 'contact'];
             
             for (let i = 0; i < sectionIds.length; i++) {
@@ -1178,11 +1284,9 @@
                 }
                 
                 if (targetElement) {
-                    // Fermer la sidebar sur mobile avant de naviguer
                     if (window.innerWidth <= 1024 && sidebar.classList.contains('open')) {
                         closeSidebar();
                         
-                        // Attendre la fin de l'animation de fermeture avant de scroller
                         setTimeout(() => {
                             const offsetTop = targetElement.offsetTop - 50;
                             window.scrollTo({
@@ -1198,7 +1302,6 @@
                         });
                     }
                     
-                    // Mettre à jour immédiatement
                     setActiveNavLink(targetSection);
                     currentSection = targetSection;
                 }
@@ -1211,7 +1314,6 @@
         function toggleSidebar() {
             console.log('Toggle sidebar called, current state:', sidebarOpen);
             
-            // Vérifier l'état réel du DOM plutôt que la variable
             const isCurrentlyOpen = sidebar.classList.contains('open');
             
             if (isCurrentlyOpen) {
@@ -1228,7 +1330,6 @@
             body.classList.add('sidebar-open');
             sidebarOpen = true;
             
-            // Ajouter un léger délai pour s'assurer que la transition CSS s'applique
             setTimeout(() => {
                 sidebar.setAttribute('data-state', 'open');
             }, 10);
@@ -1254,35 +1355,29 @@
             const videos = document.querySelectorAll('.project-preview');
             
             videos.forEach(video => {
-                // Essayer de jouer la vidéo automatiquement
                 const playPromise = video.play();
                 
                 if (playPromise !== undefined) {
                     playPromise
                         .then(() => {
-                            // L'autoplay fonctionne
                             video.setAttribute('data-can-play', 'true');
                             console.log('Video autoplay successful');
                         })
                         .catch((error) => {
-                            // L'autoplay ne fonctionne pas
                             console.log('Video autoplay failed:', error);
                             video.setAttribute('data-can-play', 'false');
                             
-                            // Mettre en pause et marquer comme nécessitant une interaction
                             video.pause();
                             video.setAttribute('data-mobile-paused', 'true');
                         });
                 }
                 
-                // Gérer l'événement canplay
                 video.addEventListener('canplay', () => {
                     if (!video.hasAttribute('data-can-play')) {
                         video.setAttribute('data-can-play', 'true');
                     }
                 });
                 
-                // Gérer les erreurs de chargement
                 video.addEventListener('error', () => {
                     console.log('Video loading error');
                     video.setAttribute('data-can-play', 'false');
@@ -1314,20 +1409,17 @@
             const video = container.querySelector('.project-preview');
             const fallback = container.querySelector('.video-fallback');
             
-            // Essayer de jouer la vidéo
             const playPromise = video.play();
             
             if (playPromise !== undefined) {
                 playPromise
                     .then(() => {
-                        // Masquer le fallback et afficher la vidéo
                         fallback.style.display = 'none';
                         video.style.display = 'block';
                         video.setAttribute('data-can-play', 'true');
                     })
                     .catch((error) => {
                         console.log('Manual play failed:', error);
-                        // Rester sur le fallback
                     });
             }
         }
@@ -1386,8 +1478,35 @@
                 }
             });
             
-            // Gestion du bouton toggle - événement délégué plus robuste
+            // Gestion des événements de clic - délégation d'événements
             document.addEventListener('click', function(e) {
+                // Gestion des boutons de langue
+                if (e.target.closest('.lang-btn')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const button = e.target.closest('.lang-btn');
+                    const lang = button.dataset.lang;
+                    if (lang !== currentLang) {
+                        switchLanguage(lang);
+                    }
+                    return;
+                }
+                
+                // Gestion des boutons de notification
+                if (e.target.closest('[data-action="close-notification"]')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeLanguageNotification();
+                    return;
+                }
+                
+                if (e.target.closest('[data-action="dismiss-notification"]')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dismissLanguageNotification();
+                    return;
+                }
+                
                 // Gestion du bouton toggle
                 if (e.target.closest('.nav-toggle')) {
                     e.preventDefault();
@@ -1443,6 +1562,12 @@
                     }
                 }
                 
+                // Fermer notification en cliquant à l'extérieur
+                const langNotificationEl = document.getElementById('language-notification');
+                if (langNotificationEl && e.target === langNotificationEl) {
+                    closeLanguageNotification();
+                }
+                
                 // Gestion du modal
                 const modal = document.getElementById('imageModal');
                 if (modal && e.target === modal) {
@@ -1460,10 +1585,17 @@
                 }
             });
             
-            // Fermer modal et sidebar avec Escape
+            // Fermer modal, notification et sidebar avec Escape
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     closeModal();
+                    
+                    // Fermer notification avec Escape
+                    const langNotificationEl = document.getElementById('language-notification');
+                    if (langNotificationEl && langNotificationEl.classList.contains('show')) {
+                        closeLanguageNotification();
+                    }
+                    
                     if (sidebar.classList.contains('open')) {
                         closeSidebar();
                     }
@@ -1484,6 +1616,12 @@
             // Initialiser l'état de la sidebar
             sidebarOpen = false;
             sidebar.setAttribute('data-state', 'closed');
+            
+            // Initialiser la langue par défaut
+            switchLanguage('fr');
+            
+            // Afficher la notification de langue
+            showLanguageNotification();
             
             console.log('🚀 Portfolio initialisé');
         }
