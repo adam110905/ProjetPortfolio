@@ -3456,3 +3456,154 @@ body {
     outline: 2px solid var(--primary);
     outline-offset: 2px;
 }
+
+/* ===========================================
+STYLES POUR LE BOUTON DE SWITCH LANGUE
+=========================================== */
+.language-switch {
+position: fixed;
+top: 20px;
+right: 20px;
+z-index: 1001;
+background: rgba(15, 23, 42, 0.9);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(59, 130, 246, 0.3);
+border-radius: 2rem;
+padding: 0.7rem 1.2rem;
+display: flex;
+align-items: center;
+gap: 0.6rem;
+cursor: pointer;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+color: var(--text-primary);
+font-size: 0.9rem;
+font-weight: 500;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+min-height: 44px;
+justify-content: center;
+user-select: none;
+-webkit-user-select: none;
+-webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
+}
+
+.language-switch::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+opacity: 0;
+transition: opacity 0.3s ease;
+border-radius: 2rem;
+}
+
+.language-switch:hover::before {
+opacity: 1;
+}
+
+.language-switch:hover {
+transform: translateY(-2px);
+border-color: rgba(59, 130, 246, 0.6);
+box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.language-switch:active {
+transform: translateY(0) scale(0.98);
+}
+
+.flag-icon {
+font-size: 1.3rem;
+line-height: 1;
+z-index: 1;
+position: relative;
+transition: transform 0.3s ease;
+}
+
+.language-switch:hover .flag-icon {
+transform: scale(1.1);
+}
+
+.lang-text {
+z-index: 1;
+position: relative;
+font-weight: 600;
+letter-spacing: 0.3px;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+.language-switch {
+    top: 15px;
+    right: 15px;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    min-height: 40px;
+}
+
+.flag-icon {
+    font-size: 1.1rem;
+}
+}
+
+@media (max-width: 480px) {
+.language-switch {
+    top: 23px;
+    right: 10px;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    min-height: 36px;
+    gap: 0.4rem;
+}
+
+.flag-icon {
+    font-size: 1rem;
+}
+}
+
+/* Adaptation quand la sidebar est ouverte sur mobile */
+@media (max-width: 1024px) {
+.sidebar-open .language-switch {
+    z-index: 999;
+    opacity: 0.8;
+}
+}
+
+/* Mode paysage sur mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+.language-switch {
+    top: 10px;
+    right: 10px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    min-height: 32px;
+}
+
+.flag-icon {
+    font-size: 0.9rem;
+}
+}
+
+/* Animation fluide pour le changement de drapeau */
+.language-switch .flag-icon {
+transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* États de focus pour l'accessibilité */
+.language-switch:focus {
+outline: 2px solid var(--primary);
+outline-offset: 2px;
+}
+
+/* Amélioration pour les écrans tactiles */
+@media (hover: none) {
+.language-switch:hover {
+    transform: none;
+}
+
+.language-switch:active {
+    background: rgba(59, 130, 246, 0.2);
+    transform: scale(0.95);
+}
+}
