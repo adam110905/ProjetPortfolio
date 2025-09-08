@@ -8,56 +8,15 @@
 </head>
 <body>
     <!-- ===========================================
-         NOTIFICATION POP-UP BILINGUE SOBRE
+         BOUTON SWITCH DE LANGUE EN HAUT À DROITE
          =========================================== -->
-    <div id="language-notification" class="language-notification">
-        <div class="notification-content">
-            <div class="notification-header">
-                <div class="notification-icon">
-                </div>
-                
-                <!-- Sélecteur de langue -->
-                <div class="language-selector">
-                    <button class="lang-btn active" data-lang="fr">
-                        <span class="flag-emoji">🇫🇷</span>
-                        <span>FR</span>
-                    </button>
-                    <button class="lang-btn" data-lang="en">
-                        <span class="flag-emoji">🇬🇧</span>
-                        <span>EN</span>
-                    </button>
-                </div>
-                
-                <button class="notification-close" data-action="close-notification">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"/>
-                        <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                </button>
-            </div>
-            
-            <div class="notification-body">
-                <div class="notification-title" data-lang-target="title">
-                    <span data-lang="fr">Version anglaise à venir</span>
-                    <span data-lang="en" style="display: none;">English version coming</span>
-                </div>
-                
-                <div class="notification-text" data-lang-target="text">
-                    <p data-lang="fr">Ce portfolio sera bientôt disponible en anglais pour une meilleure accessibilité internationale.</p>
-                    <p data-lang="en" style="display: none;">This portfolio will soon be available in English for better international accessibility.</p>
-                </div>
-            </div>
-            
-            <div class="notification-footer">
-                <button class="btn-dismiss" data-action="dismiss-notification">
-                    <span data-lang-target="dismiss">
-                        <span data-lang="fr">Compris</span>
-                        <span data-lang="en" style="display: none;">Got it</span>
-                    </span>
-                </button>
-            </div>
-        </div>
-    </div>
+    <button class="language-switch" id="languageSwitch">
+        <span class="flag-icon">🇬🇧</span>
+        <span class="lang-text" data-lang-key="lang-switch">
+            <span data-lang="fr">English</span>
+            <span data-lang="en" style="display: none;">Français</span>
+        </span>
+    </button>
 
     <!-- ===========================================
          BOUTON TOGGLE MOBILE
@@ -86,7 +45,10 @@
                     <div class="avatar-outline"></div>
                 </div>
                 <h2 class="name">BOUALI Adam</h2>
-                <p class="title">Étudiant BTS SIO SLAM</p>
+                <p class="title" data-lang-key="student-title">
+                    <span data-lang="fr">Étudiant BTS SIO SLAM</span>
+                    <span data-lang="en" style="display: none;">BTS SIO SLAM Student</span>
+                </p>
             </div>
             
             <!-- Navigation principale -->
@@ -96,7 +58,10 @@
                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                         <polyline points="9,22 9,12 15,12 15,22"></polyline>
                     </svg>
-                    <span>Accueil</span>
+                    <span data-lang-key="nav-home">
+                        <span data-lang="fr">Accueil</span>
+                        <span data-lang="en" style="display: none;">Home</span>
+                    </span>
                     <div class="nav-progress"></div>
                 </a>
                 <a href="#profil" class="nav-link" data-section="profil">
@@ -104,7 +69,10 @@
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
-                    <span>Profil</span>
+                    <span data-lang-key="nav-profile">
+                        <span data-lang="fr">Profil</span>
+                        <span data-lang="en" style="display: none;">Profile</span>
+                    </span>
                     <div class="nav-progress"></div>
                 </a>
                 <a href="#experiences" class="nav-link" data-section="experiences">
@@ -113,7 +81,10 @@
                         <line x1="8" y1="21" x2="16" y2="21"></line>
                         <line x1="12" y1="17" x2="12" y2="21"></line>
                     </svg>
-                    <span>Expériences & Passions</span>
+                    <span data-lang-key="nav-experiences">
+                        <span data-lang="fr">Expériences & Passions</span>
+                        <span data-lang="en" style="display: none;">Experience & Passions</span>
+                    </span>
                     <div class="nav-progress"></div>
                 </a>
                 <a href="#projects" class="nav-link" data-section="projects">
@@ -121,14 +92,20 @@
                         <polyline points="16,18 22,12 16,6"></polyline>
                         <polyline points="8,6 2,12 8,18"></polyline>
                     </svg>
-                    <span>Projets</span>
+                    <span data-lang-key="nav-projects">
+                        <span data-lang="fr">Projets</span>
+                        <span data-lang="en" style="display: none;">Projects</span>
+                    </span>
                     <div class="nav-progress"></div>
                 </a>
                 <a href="#stages" class="nav-link" data-section="stages">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                     </svg>
-                    <span>Stages</span>
+                    <span data-lang-key="nav-internships">
+                        <span data-lang="fr">Stages</span>
+                        <span data-lang="en" style="display: none;">Internships</span>
+                    </span>
                     <div class="nav-progress"></div>
                 </a>
                 <a href="#veille" class="nav-link" data-section="veille">
@@ -136,7 +113,10 @@
                         <circle cx="12" cy="12" r="3"></circle>
                         <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m15.5-6.5l-4.24 4.24M7.76 16.24l-4.24 4.24m12.73 0l-4.24-4.24M7.76 7.76L3.52 3.52"></path>
                     </svg>
-                    <span>Veille Technologique</span>
+                    <span data-lang-key="nav-tech-watch">
+                        <span data-lang="fr">Veille Technologique</span>
+                        <span data-lang="en" style="display: none;">Tech Watch</span>
+                    </span>
                     <div class="nav-progress"></div>
                 </a>
                 <a href="#synthese" class="nav-link new" data-section="synthese">
@@ -147,7 +127,10 @@
                         <line x1="16" y1="17" x2="8" y2="17"></line>
                         <polyline points="10,9 9,9 8,9"></polyline>
                     </svg>
-                    <span>Tableau Synthèse</span>
+                    <span data-lang-key="nav-summary">
+                        <span data-lang="fr">Tableau Synthèse</span>
+                        <span data-lang="en" style="display: none;">Summary Table</span>
+                    </span>
                     <div class="nav-progress"></div>
                 </a>
                 <a href="#contact" class="nav-link" data-section="contact">
@@ -155,7 +138,10 @@
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
-                    <span>Contact</span>
+                    <span data-lang-key="nav-contact">
+                        <span data-lang="fr">Contact</span>
+                        <span data-lang="en" style="display: none;">Contact</span>
+                    </span>
                     <div class="nav-progress"></div>
                 </a>
             </nav>
@@ -174,21 +160,36 @@
                     <div class="hero-text-wrapper">
                         <h1 class="animate-fade-in">BOUALI Adam</h1>
                         <div class="subtitle animate-fade-in">
-                            <span class="highlight">Étudiant BTS SIO SLAM</span>
+                            <span class="highlight" data-lang-key="hero-subtitle">
+                                <span data-lang="fr">Étudiant BTS SIO SLAM</span>
+                                <span data-lang="en" style="display: none;">BTS SIO SLAM Student</span>
+                            </span>
                         </div>
-                        <p class="animate-fade-in delay-1">
-                            Passionné par le développement web et la création d'applications,<br>
-                            je me spécialise dans la conception d'interfaces modernes et performantes.
+                        <p class="animate-fade-in delay-1" data-lang-key="hero-description">
+                            <span data-lang="fr">
+                                Passionné par le développement web et la création d'applications,<br>
+                                je me spécialise dans la conception d'interfaces modernes et performantes.
+                            </span>
+                            <span data-lang="en" style="display: none;">
+                                Passionate about web development and application creation,<br>
+                                I specialize in designing modern and efficient interfaces.
+                            </span>
                         </p>
                         <div class="cta-wrapper animate-fade-in delay-2">
-                            <a href="#profil" class="btn-secondary">Découvrir mon portfolio</a>
-                            <a href="./IMAGES/CV_Alternance-3.png" download="CV-BOUALI-Adam.pdf" class="btn-cv">
+                            <a href="#profil" class="btn-secondary" data-lang-key="hero-discover">
+                                <span data-lang="fr">Découvrir mon portfolio</span>
+                                <span data-lang="en" style="display: none;">Discover my portfolio</span>
+                            </a>
+                            <a href="./IMAGES/Cv_Adam_Francais.pdf" download="CV-BOUALI-Adam-FR.pdf" class="btn-cv">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                                     <polyline points="7,10 12,15 17,10"/>
                                     <line x1="12" y1="15" x2="12" y2="3"/>
                                 </svg>
-                                Télécharger mon CV
+                                <span data-lang-key="hero-download-cv">
+                                    <span data-lang="fr">Télécharger mon CV</span>
+                                    <span data-lang="en" style="display: none;">Download my CV</span>
+                                </span>
                             </a>
                         </div>
                     </div>
@@ -200,13 +201,22 @@
                  =========================================== -->
             <section id="profil" class="profil">
                 <div class="section-content">
-                    <h2 class="section-title">Mon Profil</h2>
+                    <h2 class="section-title" data-lang-key="profile-title">
+                        <span data-lang="fr">Mon Profil</span>
+                        <span data-lang="en" style="display: none;">My Profile</span>
+                    </h2>
                     <div class="profil-container">
                         <div class="profil-text">
-                            <p>Actuellement étudiant en <strong>BTS Services Informatiques aux Organisations (SIO)</strong>, option SLAM, je suis passionné par le développement web et les technologies numériques.</p>
+                            <p data-lang-key="profile-description">
+                                <span data-lang="fr">Actuellement étudiant en <strong>BTS Services Informatiques aux Organisations (SIO)</strong>, option SLAM, je suis passionné par le développement web et les technologies numériques.</span>
+                                <span data-lang="en" style="display: none;">Currently a student in <strong>BTS Services Informatiques aux Organisations (SIO)</strong>, SLAM option, I am passionate about web development and digital technologies.</span>
+                            </p>
                             
                             <div class="profil-highlights">
-                                <h3>Compétences Clés</h3>
+                                <h3 data-lang-key="profile-key-skills">
+                                    <span data-lang="fr">Compétences Clés</span>
+                                    <span data-lang="en" style="display: none;">Key Skills</span>
+                                </h3>
                                 <div class="technologies">
                                     <span>PHP</span>
                                     <span>JavaScript</span>
@@ -220,19 +230,43 @@
                             </div>
                             
                             <div class="profil-highlights">
-                                <h3>Soft Skills</h3>
+                                <h3 data-lang-key="profile-soft-skills">
+                                    <span data-lang="fr">Soft Skills</span>
+                                    <span data-lang="en" style="display: none;">Soft Skills</span>
+                                </h3>
                                 <div class="technologies">
-                                    <span>Communication</span>
-                                    <span>Travail en équipe</span>
-                                    <span>Esprit critique</span>
-                                    <span>Résolution de problèmes</span>
-                                    <span>Créativité</span>
+                                    <span data-lang-key="skill-communication">
+                                        <span data-lang="fr">Communication</span>
+                                        <span data-lang="en" style="display: none;">Communication</span>
+                                    </span>
+                                    <span data-lang-key="skill-teamwork">
+                                        <span data-lang="fr">Travail en équipe</span>
+                                        <span data-lang="en" style="display: none;">Teamwork</span>
+                                    </span>
+                                    <span data-lang-key="skill-critical-thinking">
+                                        <span data-lang="fr">Esprit critique</span>
+                                        <span data-lang="en" style="display: none;">Critical thinking</span>
+                                    </span>
+                                    <span data-lang-key="skill-problem-solving">
+                                        <span data-lang="fr">Résolution de problèmes</span>
+                                        <span data-lang="en" style="display: none;">Problem solving</span>
+                                    </span>
+                                    <span data-lang-key="skill-creativity">
+                                        <span data-lang="fr">Créativité</span>
+                                        <span data-lang="en" style="display: none;">Creativity</span>
+                                    </span>
                                 </div>
                             </div>
 
                             <div class="profil-goals">
-                                <h3>Objectifs Professionnels</h3>
-                                <p>J'aspire à obtenir un bac + 5 dans le <strong>développement web</strong> orienté Fullstack</p>
+                                <h3 data-lang-key="profile-goals">
+                                    <span data-lang="fr">Objectifs Professionnels</span>
+                                    <span data-lang="en" style="display: none;">Professional Goals</span>
+                                </h3>
+                                <p data-lang-key="profile-goals-description">
+                                    <span data-lang="fr">J'aspire à obtenir un bac + 5 dans le <strong>développement web</strong> orienté Fullstack</span>
+                                    <span data-lang="en" style="display: none;">I aspire to obtain a Master's degree in <strong>web development</strong> focused on Fullstack</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -243,16 +277,30 @@
                  SECTION EXPÉRIENCES & PASSIONS
                  =========================================== -->
             <section id="experiences" class="experiences">
-                <h2 class="section-title">Expériences & Passions</h2>
-                <p class="section-subtitle">Mon parcours professionnel et mes sources d'inspiration</p>
+                <h2 class="section-title" data-lang-key="experiences-title">
+                    <span data-lang="fr">Expériences & Passions</span>
+                    <span data-lang="en" style="display: none;">Experience & Passions</span>
+                </h2>
+                <p class="section-subtitle" data-lang-key="experiences-subtitle">
+                    <span data-lang="fr">Mon parcours professionnel et mes sources d'inspiration</span>
+                    <span data-lang="en" style="display: none;">My professional journey and sources of inspiration</span>
+                </p>
                 
                 <div class="content-container" id="experiences">
                     <!-- Expériences Professionnelles -->
                     <div class="experiences-section">
                         <div class="section-header">
-                            <h3>💼 Expériences Professionnelles</h3>
-                            <p class="section-description">
-                                Découvrez mon parcours à travers des expériences enrichissantes qui ont façonné mes compétences.
+                            <h3 data-lang-key="professional-experiences">
+                                <span data-lang="fr">💼 Expériences Professionnelles</span>
+                                <span data-lang="en" style="display: none;">💼 Professional Experience</span>
+                            </h3>
+                            <p class="section-description" data-lang-key="experiences-description">
+                                <span data-lang="fr">
+                                    Découvrez mon parcours à travers des expériences enrichissantes qui ont façonné mes compétences.
+                                </span>
+                                <span data-lang="en" style="display: none;">
+                                    Discover my journey through enriching experiences that have shaped my skills.
+                                </span>
                             </p>
                         </div>
                         
@@ -268,27 +316,58 @@
                                 <div class="exp-content">
                                     <div class="exp-header-info">
                                         <div class="exp-info">
-                                            <h4 class="exp-title">Animateur Sportif</h4>
+                                            <h4 class="exp-title" data-lang-key="exp1-title">
+                                                <span data-lang="fr">Animateur Sportif</span>
+                                                <span data-lang="en" style="display: none;">Sports Animator</span>
+                                            </h4>
                                             <p class="exp-company">Travel Anim</p>
                                             <p class="exp-location">Portimao, Portugal</p>
                                         </div>
-                                        <div class="exp-period">Juillet - Août 2024</div>
+                                        <div class="exp-period" data-lang-key="exp1-period">
+                                            <span data-lang="fr">Juillet - Août 2024</span>
+                                            <span data-lang="en" style="display: none;">July - August 2024</span>
+                                        </div>
                                     </div>
                                     
-                                    <p class="exp-description">
-                                        Animation d'activités sportives dans un hôtel international à Portimao. 
-                                        Création de programmes adaptés à une clientèle multiculturelle avec gestion 
-                                        d'équipes dans un environnement touristique dynamique.
+                                    <p class="exp-description" data-lang-key="exp1-description">
+                                        <span data-lang="fr">
+                                            Animation d'activités sportives dans un hôtel international à Portimao. 
+                                            Création de programmes adaptés à une clientèle multiculturelle avec gestion 
+                                            d'équipes dans un environnement touristique dynamique.
+                                        </span>
+                                        <span data-lang="en" style="display: none;">
+                                            Animation of sports activities in an international hotel in Portimao. 
+                                            Creation of programs adapted to a multicultural clientele with team management 
+                                            in a dynamic tourist environment.
+                                        </span>
                                     </p>
                                     
                                     <div class="skills-section">
-                                        <h5 class="skills-title">Compétences développées</h5>
+                                        <h5 class="skills-title" data-lang-key="skills-developed">
+                                            <span data-lang="fr">Compétences développées</span>
+                                            <span data-lang="en" style="display: none;">Skills developed</span>
+                                        </h5>
                                         <div class="skills">
-                                            <span class="skill">Communication Anglais</span>
-                                            <span class="skill">Leadership</span>
-                                            <span class="skill">Gestion d'équipe</span>
-                                            <span class="skill">Adaptabilité</span>
-                                            <span class="skill">Créativité</span>
+                                            <span class="skill" data-lang-key="skill-english">
+                                                <span data-lang="fr">Communication Anglais</span>
+                                                <span data-lang="en" style="display: none;">English Communication</span>
+                                            </span>
+                                            <span class="skill" data-lang-key="skill-leadership">
+                                                <span data-lang="fr">Leadership</span>
+                                                <span data-lang="en" style="display: none;">Leadership</span>
+                                            </span>
+                                            <span class="skill" data-lang-key="skill-team-management">
+                                                <span data-lang="fr">Gestion d'équipe</span>
+                                                <span data-lang="en" style="display: none;">Team management</span>
+                                            </span>
+                                            <span class="skill" data-lang-key="skill-adaptability">
+                                                <span data-lang="fr">Adaptabilité</span>
+                                                <span data-lang="en" style="display: none;">Adaptability</span>
+                                            </span>
+                                            <span class="skill" data-lang-key="skill-creativity2">
+                                                <span data-lang="fr">Créativité</span>
+                                                <span data-lang="en" style="display: none;">Creativity</span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -305,27 +384,61 @@
                                 <div class="exp-content">
                                     <div class="exp-header-info">
                                         <div class="exp-info">
-                                            <h4 class="exp-title">Maître Nageur</h4>
+                                            <h4 class="exp-title" data-lang-key="exp2-title">
+                                                <span data-lang="fr">Maître Nageur</span>
+                                                <span data-lang="en" style="display: none;">Lifeguard</span>
+                                            </h4>
                                             <p class="exp-company">SeaWorld</p>
-                                            <p class="exp-location">Orlando, États-Unis</p>
+                                            <p class="exp-location" data-lang-key="exp2-location">
+                                                <span data-lang="fr">Orlando, États-Unis</span>
+                                                <span data-lang="en" style="display: none;">Orlando, United States</span>
+                                            </p>
                                         </div>
-                                        <div class="exp-period">Juin - Août 2025</div>
+                                        <div class="exp-period" data-lang-key="exp2-period">
+                                            <span data-lang="fr">Juin - Août 2025</span>
+                                            <span data-lang="en" style="display: none;">June - August 2025</span>
+                                        </div>
                                     </div>
                                     
-                                    <p class="exp-description">
-                                        Surveillance et sécurité aquatique dans le prestigieux parc SeaWorld d'Orlando. 
-                                        Responsabilité de la sécurité des visiteurs avec intervention d'urgence et 
-                                        sensibilisation à la sécurité aquatique.
+                                    <p class="exp-description" data-lang-key="exp2-description">
+                                        <span data-lang="fr">
+                                            Surveillance et sécurité aquatique dans le prestigieux parc SeaWorld d'Orlando. 
+                                            Responsabilité de la sécurité des visiteurs avec intervention d'urgence et 
+                                            sensibilisation à la sécurité aquatique.
+                                        </span>
+                                        <span data-lang="en" style="display: none;">
+                                            Aquatic surveillance and safety at the prestigious SeaWorld Orlando park. 
+                                            Responsibility for visitor safety with emergency intervention and 
+                                            awareness of aquatic safety.
+                                        </span>
                                     </p>
                                     
                                     <div class="skills-section">
-                                        <h5 class="skills-title">Compétences développées</h5>
+                                        <h5 class="skills-title" data-lang-key="skills-developed2">
+                                            <span data-lang="fr">Compétences développées</span>
+                                            <span data-lang="en" style="display: none;">Skills developed</span>
+                                        </h5>
                                         <div class="skills">
-                                            <span class="skill">Anglais professionnel</span>
-                                            <span class="skill">Sécurité aquatique</span>
-                                            <span class="skill">Gestion d'urgence</span>
-                                            <span class="skill">Vigilance</span>
-                                            <span class="skill">Pédagogie</span>
+                                            <span class="skill" data-lang-key="skill-professional-english">
+                                                <span data-lang="fr">Anglais professionnel</span>
+                                                <span data-lang="en" style="display: none;">Professional English</span>
+                                            </span>
+                                            <span class="skill" data-lang-key="skill-water-safety">
+                                                <span data-lang="fr">Sécurité aquatique</span>
+                                                <span data-lang="en" style="display: none;">Water safety</span>
+                                            </span>
+                                            <span class="skill" data-lang-key="skill-emergency-management">
+                                                <span data-lang="fr">Gestion d'urgence</span>
+                                                <span data-lang="en" style="display: none;">Emergency management</span>
+                                            </span>
+                                            <span class="skill" data-lang-key="skill-vigilance">
+                                                <span data-lang="fr">Vigilance</span>
+                                                <span data-lang="en" style="display: none;">Vigilance</span>
+                                            </span>
+                                            <span class="skill" data-lang-key="skill-pedagogy">
+                                                <span data-lang="fr">Pédagogie</span>
+                                                <span data-lang="en" style="display: none;">Pedagogy</span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -336,9 +449,17 @@
                     <!-- Section Passions -->
                     <div class="passions-section">
                         <div class="section-header">
-                            <h3>❤️ Passions</h3>
-                            <p class="section-description">
-                                Ce qui m'inspire et nourrit ma créativité.
+                            <h3 data-lang-key="passions-title">
+                                <span data-lang="fr">❤️ Passions</span>
+                                <span data-lang="en" style="display: none;">❤️ Passions</span>
+                            </h3>
+                            <p class="section-description" data-lang-key="passions-description">
+                                <span data-lang="fr">
+                                    Ce qui m'inspire et nourrit ma créativité.
+                                </span>
+                                <span data-lang="en" style="display: none;">
+                                    What inspires me and feeds my creativity.
+                                </span>
                             </p>
                         </div>
                         
@@ -358,10 +479,18 @@
                                             <circle cx="12" cy="18" r="2"></circle>
                                         </svg>
                                     </div>
-                                    <h4 class="passion-title">Sport</h4>
+                                    <h4 class="passion-title" data-lang-key="passion-sport-title">
+                                        <span data-lang="fr">Sport</span>
+                                        <span data-lang="en" style="display: none;">Sports</span>
+                                    </h4>
                                 </div>
-                                <p class="passion-description">
-                                    Première DAN de TAEKWONDO, le sport est une passion qui m'apporte discipline et persévérance.
+                                <p class="passion-description" data-lang-key="passion-sport-description">
+                                    <span data-lang="fr">
+                                        Première DAN de TAEKWONDO, le sport est une passion qui m'apporte discipline et persévérance.
+                                    </span>
+                                    <span data-lang="en" style="display: none;">
+                                        First DAN in TAEKWONDO, sports is a passion that brings me discipline and perseverance.
+                                    </span>
                                 </p>
                             </div>
                             
@@ -375,10 +504,18 @@
                                             <rect x="14" y="7" width="3" height="5"></rect>
                                         </svg>
                                     </div>
-                                    <h4 class="passion-title">Tech</h4>
+                                    <h4 class="passion-title" data-lang-key="passion-tech-title">
+                                        <span data-lang="fr">Tech</span>
+                                        <span data-lang="en" style="display: none;">Tech</span>
+                                    </h4>
                                 </div>
-                                <p class="passion-description">
-                                    Veille technologique constante sur les innovations en développement web et IA.
+                                <p class="passion-description" data-lang-key="passion-tech-description">
+                                    <span data-lang="fr">
+                                        Veille technologique constante sur les innovations en développement web et IA.
+                                    </span>
+                                    <span data-lang="en" style="display: none;">
+                                        Constant technological monitoring of innovations in web development and AI.
+                                    </span>
                                 </p>
                             </div>
                             
@@ -391,10 +528,18 @@
                                             <circle cx="12" cy="10" r="3"></circle>
                                         </svg>
                                     </div>
-                                    <h4 class="passion-title">Voyages</h4>
+                                    <h4 class="passion-title" data-lang-key="passion-travel-title">
+                                        <span data-lang="fr">Voyages</span>
+                                        <span data-lang="en" style="display: none;">Travel</span>
+                                    </h4>
                                 </div>
-                                <p class="passion-description">
-                                    Découverte de nouvelles cultures et ouverture d'esprit à travers le monde en voyagant.
+                                <p class="passion-description" data-lang-key="passion-travel-description">
+                                    <span data-lang="fr">
+                                        Découverte de nouvelles cultures et ouverture d'esprit à travers le monde en voyageant.
+                                    </span>
+                                    <span data-lang="en" style="display: none;">
+                                        Discovering new cultures and opening minds through traveling around the world.
+                                    </span>
                                 </p>
                             </div>
                             
@@ -408,10 +553,18 @@
                                             <circle cx="18" cy="16" r="3"></circle>
                                         </svg>
                                     </div>
-                                    <h4 class="passion-title">Musique</h4>
+                                    <h4 class="passion-title" data-lang-key="passion-music-title">
+                                        <span data-lang="fr">Musique</span>
+                                        <span data-lang="en" style="display: none;">Music</span>
+                                    </h4>
                                 </div>
-                                <p class="passion-description">
-                                    Source d'inspiration créative qui accompagne mon travail et moments de détente.
+                                <p class="passion-description" data-lang-key="passion-music-description">
+                                    <span data-lang="fr">
+                                        Source d'inspiration créative qui accompagne mon travail et moments de détente.
+                                    </span>
+                                    <span data-lang="en" style="display: none;">
+                                        Source of creative inspiration that accompanies my work and moments of relaxation.
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -424,8 +577,14 @@
                  =========================================== -->
             <section id="projects" class="projects">
                 <div class="section-content">
-                    <h2 class="section-title">Projets BTS SIO</h2>
-                    <p>Mes projets réalisé durant mes deux années de BTS SIO section SLAM.</p>
+                    <h2 class="section-title" data-lang-key="projects-title">
+                        <span data-lang="fr">Projets BTS SIO</span>
+                        <span data-lang="en" style="display: none;">BTS SIO Projects</span>
+                    </h2>
+                    <p data-lang-key="projects-subtitle">
+                        <span data-lang="fr">Mes projets réalisé durant mes deux années de BTS SIO section SLAM.</span>
+                        <span data-lang="en" style="display: none;">My projects completed during my two years of BTS SIO SLAM section.</span>
+                    </p>
 
                     <!-- Note d'information -->
                     <div class="info-note">
@@ -441,9 +600,15 @@
                                 <line x1="12" y1="8" x2="12" y2="12"></line>
                                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
                             </svg>
-                            <span>Note</span>
+                            <span data-lang-key="note-title">
+                                <span data-lang="fr">Note</span>
+                                <span data-lang="en" style="display: none;">Note</span>
+                            </span>
                         </div>
-                        <p>Les liens "Voir le site" peuvent ne pas fonctionner pour les projets utilisant PHP, GitHub Pages n'exécutant pas ce type de code. Ces projets sont uniquement consultables en environnement local.</p>
+                        <p data-lang-key="note-description">
+                            <span data-lang="fr">Les liens "Voir le site" peuvent ne pas fonctionner pour les projets utilisant PHP, GitHub Pages n'exécutant pas ce type de code. Ces projets sont uniquement consultables en environnement local.</span>
+                            <span data-lang="en" style="display: none;">The "View site" links may not work for projects using PHP, as GitHub Pages does not execute this type of code. These projects can only be viewed in a local environment.</span>
+                        </p>
                     </div>
 
                     <div class="projects-grid">
@@ -466,7 +631,10 @@
                                             <polygon points="8,6 20,12 8,18"></polygon>
                                         </svg>
                                     </div>
-                                    <p>Projet PHP - Cliquez pour voir la démonstration</p>
+                                    <p data-lang-key="video-fallback-php">
+                                        <span data-lang="fr">Projet PHP - Cliquez pour voir la démonstration</span>
+                                        <span data-lang="en" style="display: none;">PHP Project - Click to see the demo</span>
+                                    </p>
                                 </div>
                                 <button class="video-play-btn" data-action="toggle-video">
                                     <svg viewBox="0 0 24 24" class="play-svg">
@@ -479,8 +647,14 @@
                                 </button>
                             </div>
                             <div class="project-content">
-                                <h3>Projet PHP</h3>
-                                <p>Projet PHP à présenter en fin d'année pour l'épreuve E4 du bts SIO spécialité SLAM.</p>
+                                <h3 data-lang-key="project1-title">
+                                    <span data-lang="fr">Projet PHP</span>
+                                    <span data-lang="en" style="display: none;">PHP Project</span>
+                                </h3>
+                                <p data-lang-key="project1-description">
+                                    <span data-lang="fr">Projet PHP à présenter en fin d'année pour l'épreuve E4 du bts SIO spécialité SLAM.</span>
+                                    <span data-lang="en" style="display: none;">PHP project to be presented at the end of the year for the E4 exam of BTS SIO SLAM specialty.</span>
+                                </p>
                                 <div class="technologies">
                                     <span>HTML</span>
                                     <span>CSS</span>
@@ -490,7 +664,10 @@
                                 <div class="project-footer">
                                     <span class="date">2024</span>
                                     <div class="project-links">
-                                        <a href="https://adam110905.github.io/Projet-PHP-Bts-Sio/Code/php/offline/index.html" target="_blank" class="btn-details">Voir le site →</a>
+                                        <a href="https://adam110905.github.io/Projet-PHP-Bts-Sio/Code/php/offline/index.html" target="_blank" class="btn-details" data-lang-key="view-site">
+                                            <span data-lang="fr">Voir le site →</span>
+                                            <span data-lang="en" style="display: none;">View site →</span>
+                                        </a>
                                     </div>
                                     <div class="project-links">
                                         <a href="https://github.com/adam110905/Projet-PHP-Bts-Sio" target="_blank" class="btn-details">GitHub →</a>
@@ -518,7 +695,10 @@
                                             <polygon points="8,6 20,12 8,18"></polygon>
                                         </svg>
                                     </div>
-                                    <p>OceanToons - Cliquez pour voir la démonstration</p>
+                                    <p data-lang-key="video-fallback-ocean">
+                                        <span data-lang="fr">OceanToons - Cliquez pour voir la démonstration</span>
+                                        <span data-lang="en" style="display: none;">OceanToons - Click to see the demo</span>
+                                    </p>
                                 </div>
                                 <button class="video-play-btn" data-action="toggle-video">
                                     <svg viewBox="0 0 24 24" class="play-svg">
@@ -531,8 +711,14 @@
                                 </button>
                             </div>
                             <div class="project-content">
-                                <h3>Projet OceanToons</h3>
-                                <p>Projet réalisé durant la nuit de l'informatique 2024 au CESI de la Rochelle.</p>
+                                <h3 data-lang-key="project2-title">
+                                    <span data-lang="fr">Projet OceanToons</span>
+                                    <span data-lang="en" style="display: none;">OceanToons Project</span>
+                                </h3>
+                                <p data-lang-key="project2-description">
+                                    <span data-lang="fr">Projet réalisé durant la nuit de l'informatique 2024 au CESI de la Rochelle.</span>
+                                    <span data-lang="en" style="display: none;">Project completed during the 2024 night of computing at CESI La Rochelle.</span>
+                                </p>
                                 <div class="technologies">
                                     <span>HTML</span>
                                     <span>CSS</span>
@@ -542,7 +728,10 @@
                                 <div class="project-footer">
                                     <span class="date">2024</span>
                                     <div class="project-links">
-                                        <a href="https://adam110905.github.io/Nuit-de-l-info-2024-CESI/D%C3%A9fi%20OC%C3%A9an/HTML/accueil.html" target="_blank" class="btn-details">Voir le site →</a>
+                                        <a href="https://adam110905.github.io/Nuit-de-l-info-2024-CESI/D%C3%A9fi%20OC%C3%A9an/HTML/accueil.html" target="_blank" class="btn-details" data-lang-key="view-site2">
+                                            <span data-lang="fr">Voir le site →</span>
+                                            <span data-lang="en" style="display: none;">View site →</span>
+                                        </a>
                                     </div>
                                     <div class="project-links">
                                         <a href="https://adam110905.github.io/Nuit-de-l-info-2024-CESI/D%C3%A9fi%20OC%C3%A9an/HTML/accueil.html" target="_blank" class="btn-details">GitHub →</a>
@@ -570,7 +759,10 @@
                                             <polygon points="8,6 20,12 8,18"></polygon>
                                         </svg>
                                     </div>
-                                    <p>Site E-Commerce - Cliquez pour voir la démonstration</p>
+                                    <p data-lang-key="video-fallback-ecommerce">
+                                        <span data-lang="fr">Site E-Commerce - Cliquez pour voir la démonstration</span>
+                                        <span data-lang="en" style="display: none;">E-Commerce Site - Click to see the demo</span>
+                                    </p>
                                 </div>
                                 <button class="video-play-btn" data-action="toggle-video">
                                     <svg viewBox="0 0 24 24" class="play-svg">
@@ -583,8 +775,14 @@
                                 </button>
                             </div>
                             <div class="project-content">
-                                <h3>Site E-Commerce</h3>
-                                <p>Projet réalisé en cours portant sur un site e-commerce proposant des images générées par l'IA et disponibles à l'achat.</p>
+                                <h3 data-lang-key="project3-title">
+                                    <span data-lang="fr">Site E-Commerce</span>
+                                    <span data-lang="en" style="display: none;">E-Commerce Site</span>
+                                </h3>
+                                <p data-lang-key="project3-description">
+                                    <span data-lang="fr">Projet réalisé en cours portant sur un site e-commerce proposant des images générées par l'IA et disponibles à l'achat.</span>
+                                    <span data-lang="en" style="display: none;">Project completed in class on an e-commerce site offering AI-generated images available for purchase.</span>
+                                </p>
                                 <div class="technologies">
                                     <span>HTML</span>
                                     <span>CSS</span>
@@ -594,7 +792,10 @@
                                 <div class="project-footer">
                                     <span class="date">2024</span>
                                     <div class="project-links">
-                                        <a href="#" class="btn-details">Voir le site →</a>
+                                        <a href="#" class="btn-details" data-lang-key="view-site3">
+                                            <span data-lang="fr">Voir le site →</span>
+                                            <span data-lang="en" style="display: none;">View site →</span>
+                                        </a>
                                     </div>
                                     <div class="project-links">
                                         <a href="https://adam110905.github.io//D%C3%A9fi%20OC%C3%A9an/HTML/accueil.html" target="_blank" class="btn-details">GitHub →</a>
@@ -611,8 +812,14 @@
                  =========================================== -->
             <section id="stages" class="stages">
                 <div class="section-content">
-                    <h2 class="section-title">Stages</h2>
-                    <p>Découvrez les projets sur lesquels j'ai travaillé durant mes stages.</p>
+                    <h2 class="section-title" data-lang-key="internships-title">
+                        <span data-lang="fr">Stages</span>
+                        <span data-lang="en" style="display: none;">Internships</span>
+                    </h2>
+                    <p data-lang-key="internships-subtitle">
+                        <span data-lang="fr">Découvrez les projets sur lesquels j'ai travaillé durant mes stages.</span>
+                        <span data-lang="en" style="display: none;">Discover the projects I worked on during my internships.</span>
+                    </p>
                     
                     <div class="stages-grid">
                         <!-- Stage ChatBox React.js -->
@@ -634,7 +841,10 @@
                                             <polygon points="8,6 20,12 8,18"></polygon>
                                         </svg>
                                     </div>
-                                    <p>ChatBox React.js - Cliquez pour voir la démonstration</p>
+                                    <p data-lang-key="video-fallback-chatbox">
+                                        <span data-lang="fr">ChatBox React.js - Cliquez pour voir la démonstration</span>
+                                        <span data-lang="en" style="display: none;">ChatBox React.js - Click to see the demo</span>
+                                    </p>
                                 </div>
                                 <button class="video-play-btn" data-action="toggle-video">
                                     <svg viewBox="0 0 24 24" class="play-svg">
@@ -647,9 +857,18 @@
                                 </button>
                             </div>
                             <div class="project-content">
-                                <h3>ChatBox Réalisé en React.js</h3>
-                                <p class="company">Entreprise Born Digital - Malta</p>
-                                <p>Stage de fin d'études. Développement d'une chatbox pour un site web.</p>
+                                <h3 data-lang-key="internship1-title">
+                                    <span data-lang="fr">ChatBox Réalisé en React.js</span>
+                                    <span data-lang="en" style="display: none;">ChatBox Built with React.js</span>
+                                </h3>
+                                <p class="company" data-lang-key="company1">
+                                    <span data-lang="fr">Entreprise Born Digital - Malta</span>
+                                    <span data-lang="en" style="display: none;">Born Digital Company - Malta</span>
+                                </p>
+                                <p data-lang-key="internship1-description">
+                                    <span data-lang="fr">Stage de fin d'études. Développement d'une chatbox pour un site web.</span>
+                                    <span data-lang="en" style="display: none;">Final year internship. Development of a chatbox for a website.</span>
+                                </p>
                                 <div class="technologies">
                                     <span>React.js</span>
                                     <span>Node.js</span>
@@ -657,12 +876,24 @@
                                     <span>HTML/CSS</span>
                                 </div>
                                 <div class="project-footer">
-                                    <span class="date">Janvier - Mars 2025</span>
+                                    <span class="date" data-lang-key="internship1-date">
+                                        <span data-lang="fr">Janvier - Mars 2025</span>
+                                        <span data-lang="en" style="display: none;">January - March 2025</span>
+                                    </span>
                                     <div class="achievements">
                                         <ul>
-                                            <li>Développement du front-end la chatbox à partir du design figma</li>
-                                            <li>Optimisation / Correction de bugs + responsiveness</li>
-                                            <li>Réunion avec le client afin de discuter de l'avancement</li>
+                                            <li data-lang-key="achievement1-1">
+                                                <span data-lang="fr">Développement du front-end la chatbox à partir du design figma</span>
+                                                <span data-lang="en" style="display: none;">Frontend development of the chatbox from Figma design</span>
+                                            </li>
+                                            <li data-lang-key="achievement1-2">
+                                                <span data-lang="fr">Optimisation / Correction de bugs + responsiveness</span>
+                                                <span data-lang="en" style="display: none;">Optimization / Bug fixes + responsiveness</span>
+                                            </li>
+                                            <li data-lang-key="achievement1-3">
+                                                <span data-lang="fr">Réunion avec le client afin de discuter de l'avancement</span>
+                                                <span data-lang="en" style="display: none;">Meeting with the client to discuss progress</span>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -688,7 +919,10 @@
                                             <polygon points="8,6 20,12 8,18"></polygon>
                                         </svg>
                                     </div>
-                                    <p>Interface I.A - Cliquez pour voir la démonstration</p>
+                                    <p data-lang-key="video-fallback-ai">
+                                        <span data-lang="fr">Interface I.A - Cliquez pour voir la démonstration</span>
+                                        <span data-lang="en" style="display: none;">AI Interface - Click to see the demo</span>
+                                    </p>
                                 </div>
                                 <button class="video-play-btn" data-action="toggle-video">
                                     <svg viewBox="0 0 24 24" class="play-svg">
@@ -701,9 +935,18 @@
                                 </button>
                             </div>
                             <div class="project-content">
-                                <h3>Front-end / Back-end d'une nouvelle interface pour une I.A</h3>
-                                <p class="company">Entreprise Born Digital - Malte</p>
-                                <p>Stage de fin d'études. Front-end / Back-end pour une nouvelle interface à partir d'un figma.</p>
+                                <h3 data-lang-key="internship2-title">
+                                    <span data-lang="fr">Front-end / Back-end d'une nouvelle interface pour une I.A</span>
+                                    <span data-lang="en" style="display: none;">Front-end / Back-end of a new interface for an AI</span>
+                                </h3>
+                                <p class="company" data-lang-key="company2">
+                                    <span data-lang="fr">Entreprise Born Digital - Malte</span>
+                                    <span data-lang="en" style="display: none;">Born Digital Company - Malta</span>
+                                </p>
+                                <p data-lang-key="internship2-description">
+                                    <span data-lang="fr">Stage de fin d'études. Front-end / Back-end pour une nouvelle interface à partir d'un figma.</span>
+                                    <span data-lang="en" style="display: none;">Final year internship. Front-end / Back-end for a new interface from a Figma design.</span>
+                                </p>
                                 <div class="technologies">
                                     <span>Typescript</span>
                                     <span>Auth0</span>
@@ -711,12 +954,24 @@
                                     <span>JavaScript</span>
                                 </div>
                                 <div class="project-footer">
-                                    <span class="date">Janvier - Mars 2025</span>
+                                    <span class="date" data-lang-key="internship2-date">
+                                        <span data-lang="fr">Janvier - Mars 2025</span>
+                                        <span data-lang="en" style="display: none;">January - March 2025</span>
+                                    </span>
                                     <div class="achievements">
                                         <ul>
-                                            <li>Reconcevoir l'interface selon le design Figma</li>
-                                            <li>Lier le framework Back-end Auth0 pour l'authentification</li>
-                                            <li>Optimisation / Correction de bugs + responsiveness</li>
+                                            <li data-lang-key="achievement2-1">
+                                                <span data-lang="fr">Reconcevoir l'interface selon le design Figma</span>
+                                                <span data-lang="en" style="display: none;">Redesign the interface according to Figma design</span>
+                                            </li>
+                                            <li data-lang-key="achievement2-2">
+                                                <span data-lang="fr">Lier le framework Back-end Auth0 pour l'authentification</span>
+                                                <span data-lang="en" style="display: none;">Link the Auth0 backend framework for authentication</span>
+                                            </li>
+                                            <li data-lang-key="achievement2-3">
+                                                <span data-lang="fr">Optimisation / Correction de bugs + responsiveness</span>
+                                                <span data-lang="en" style="display: none;">Optimization / Bug fixes + responsiveness</span>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -730,8 +985,14 @@
                  SECTION VEILLE TECHNOLOGIQUE
                  =========================================== -->
             <section id="veille" class="veille">
-                <h2 class="section-title">Veille informatique</h2>
-                <p>Découvrez mes sources de veille technologique et mes centres d'intérêt dans le domaine informatique pour rester à jour avec les dernières innovations.</p>
+                <h2 class="section-title" data-lang-key="tech-watch-title">
+                    <span data-lang="fr">Veille informatique</span>
+                    <span data-lang="en" style="display: none;">Tech Watch</span>
+                </h2>
+                <p data-lang-key="tech-watch-subtitle">
+                    <span data-lang="fr">Découvrez mes sources de veille technologique et mes centres d'intérêt dans le domaine informatique pour rester à jour avec les dernières innovations.</span>
+                    <span data-lang="en" style="display: none;">Discover my technological monitoring sources and areas of interest in the IT field to stay up to date with the latest innovations.</span>
+                </p>
                 
                 <div class="veille-container">
                     <!-- Développement Web -->
@@ -743,14 +1004,25 @@
                                     <polyline points="8,6 2,12 8,18"></polyline>
                                 </svg>
                             </div>
-                            <h3 class="veille-title">Développement Web</h3>
+                            <h3 class="veille-title" data-lang-key="web-dev-title">
+                                <span data-lang="fr">Développement Web</span>
+                                <span data-lang="en" style="display: none;">Web Development</span>
+                            </h3>
                         </div>
-                        <p class="veille-description">
-                            Suivi des dernières tendances en développement frontend et backend, nouveaux frameworks, et bonnes pratiques de développement.
+                        <p class="veille-description" data-lang-key="web-dev-description">
+                            <span data-lang="fr">
+                                Suivi des dernières tendances en développement frontend et backend, nouveaux frameworks, et bonnes pratiques de développement.
+                            </span>
+                            <span data-lang="en" style="display: none;">
+                                Tracking the latest trends in frontend and backend development, new frameworks, and development best practices.
+                            </span>
                         </p>
                         
                         <div class="veille-sources">
-                            <h4>🔗 Sources principales</h4>
+                            <h4 data-lang-key="main-sources">
+                                <span data-lang="fr">🔗 Sources principales</span>
+                                <span data-lang="en" style="display: none;">🔗 Main sources</span>
+                            </h4>
                             <div class="sources-grid">
                                 <div class="source-item">
                                     <div class="source-logo">🌐</div>
@@ -772,7 +1044,10 @@
                         </div>
 
                         <div class="veille-topics">
-                            <h4>🏷️ Sujets suivis</h4>
+                            <h4 data-lang-key="followed-topics">
+                                <span data-lang="fr">🏷️ Sujets suivis</span>
+                                <span data-lang="en" style="display: none;">🏷️ Followed topics</span>
+                            </h4>
                             <div class="topics-list">
                                 <span class="topic-tag">React.js</span>
                                 <span class="topic-tag">Vue.js</span>
@@ -794,14 +1069,25 @@
                                     <path d="M2 12l10 5 10-5"></path>
                                 </svg>
                             </div>
-                            <h3 class="veille-title">Intelligence Artificielle</h3>
+                            <h3 class="veille-title" data-lang-key="ai-title">
+                                <span data-lang="fr">Intelligence Artificielle</span>
+                                <span data-lang="en" style="display: none;">Artificial Intelligence</span>
+                            </h3>
                         </div>
-                        <p class="veille-description">
-                            Exploration des nouvelles technologies IA, machine learning, et leur intégration dans le développement web moderne.
+                        <p class="veille-description" data-lang-key="ai-description">
+                            <span data-lang="fr">
+                                Exploration des nouvelles technologies IA, machine learning, et leur intégration dans le développement web moderne.
+                            </span>
+                            <span data-lang="en" style="display: none;">
+                                Exploration of new AI technologies, machine learning, and their integration in modern web development.
+                            </span>
                         </p>
                         
                         <div class="veille-sources">
-                            <h4>🔗 Sources principales</h4>
+                            <h4 data-lang-key="main-sources2">
+                                <span data-lang="fr">🔗 Sources principales</span>
+                                <span data-lang="en" style="display: none;">🔗 Main sources</span>
+                            </h4>
                             <div class="sources-grid">
                                 <div class="source-item">
                                     <div class="source-logo">🤖</div>
@@ -823,7 +1109,10 @@
                         </div>
 
                         <div class="veille-topics">
-                            <h4>🏷️ Sujets suivis</h4>
+                            <h4 data-lang-key="followed-topics2">
+                                <span data-lang="fr">🏷️ Sujets suivis</span>
+                                <span data-lang="en" style="display: none;">🏷️ Followed topics</span>
+                            </h4>
                             <div class="topics-list">
                                 <span class="topic-tag">GPT & LLM</span>
                                 <span class="topic-tag">Machine Learning</span>
@@ -843,14 +1132,25 @@
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                                 </svg>
                             </div>
-                            <h3 class="veille-title">Cybersécurité</h3>
+                            <h3 class="veille-title" data-lang-key="cybersec-title">
+                                <span data-lang="fr">Cybersécurité</span>
+                                <span data-lang="en" style="display: none;">Cybersecurity</span>
+                            </h3>
                         </div>
-                        <p class="veille-description">
-                            Surveillance des vulnérabilités, bonnes pratiques de sécurité web, et nouvelles méthodes de protection des applications.
+                        <p class="veille-description" data-lang-key="cybersec-description">
+                            <span data-lang="fr">
+                                Surveillance des vulnérabilités, bonnes pratiques de sécurité web, et nouvelles méthodes de protection des applications.
+                            </span>
+                            <span data-lang="en" style="display: none;">
+                                Monitoring vulnerabilities, web security best practices, and new application protection methods.
+                            </span>
                         </p>
                         
                         <div class="veille-sources">
-                            <h4>🔗 Sources principales</h4>
+                            <h4 data-lang-key="main-sources3">
+                                <span data-lang="fr">🔗 Sources principales</span>
+                                <span data-lang="en" style="display: none;">🔗 Main sources</span>
+                            </h4>
                             <div class="sources-grid">
                                 <div class="source-item">
                                     <div class="source-logo">🛡️</div>
@@ -872,7 +1172,10 @@
                         </div>
 
                         <div class="veille-topics">
-                            <h4>🏷️ Sujets suivis</h4>
+                            <h4 data-lang-key="followed-topics3">
+                                <span data-lang="fr">🏷️ Sujets suivis</span>
+                                <span data-lang="en" style="display: none;">🏷️ Followed topics</span>
+                            </h4>
                             <div class="topics-list">
                                 <span class="topic-tag">Web Security</span>
                                 <span class="topic-tag">HTTPS/TLS</span>
@@ -892,14 +1195,25 @@
                                     <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
                                 </svg>
                             </div>
-                            <h3 class="veille-title">Technologies Émergentes</h3>
+                            <h3 class="veille-title" data-lang-key="emerging-tech-title">
+                                <span data-lang="fr">Technologies Émergentes</span>
+                                <span data-lang="en" style="display: none;">Emerging Technologies</span>
+                            </h3>
                         </div>
-                        <p class="veille-description">
-                            Exploration des nouvelles technologies : Web3, AR/VR, IoT, et leur potentiel impact sur le développement web.
+                        <p class="veille-description" data-lang-key="emerging-tech-description">
+                            <span data-lang="fr">
+                                Exploration des nouvelles technologies : Web3, AR/VR, IoT, et leur potentiel impact sur le développement web.
+                            </span>
+                            <span data-lang="en" style="display: none;">
+                                Exploration of new technologies: Web3, AR/VR, IoT, and their potential impact on web development.
+                            </span>
                         </p>
                         
                         <div class="veille-sources">
-                            <h4>🔗 Sources principales</h4>
+                            <h4 data-lang-key="main-sources4">
+                                <span data-lang="fr">🔗 Sources principales</span>
+                                <span data-lang="en" style="display: none;">🔗 Main sources</span>
+                            </h4>
                             <div class="sources-grid">
                                 <div class="source-item">
                                     <div class="source-logo">🔮</div>
@@ -921,7 +1235,10 @@
                         </div>
 
                         <div class="veille-topics">
-                            <h4>🏷️ Sujets suivis</h4>
+                            <h4 data-lang-key="followed-topics4">
+                                <span data-lang="fr">🏷️ Sujets suivis</span>
+                                <span data-lang="en" style="display: none;">🏷️ Followed topics</span>
+                            </h4>
                             <div class="topics-list">
                                 <span class="topic-tag">Web3</span>
                                 <span class="topic-tag">Blockchain</span>
@@ -939,13 +1256,22 @@
                  SECTION TABLEAU SYNTHÈSE
                  =========================================== -->
             <section id="synthese" class="synthese">
-                <h2 class="section-title">Tableau de synthèse officiel</h2>
-                <p>Document officiel BTS SIO SLAM présentant l'ensemble de mes réalisations en formation et en milieu professionnel selon le référentiel de compétences.</p>
+                <h2 class="section-title" data-lang-key="synthesis-title">
+                    <span data-lang="fr">Tableau de synthèse officiel</span>
+                    <span data-lang="en" style="display: none;">Official Summary Table</span>
+                </h2>
+                <p data-lang-key="synthesis-description">
+                    <span data-lang="fr">Document officiel BTS SIO SLAM présentant l'ensemble de mes réalisations en formation et en milieu professionnel selon le référentiel de compétences.</span>
+                    <span data-lang="en" style="display: none;">Official BTS SIO SLAM document presenting all my achievements in training and professional environments according to the skills framework.</span>
+                </p>
                 
                 <!-- Badge officiel -->
                 <div class="badge-officiel">
                     <div class="badge-icon">✓</div>
-                    <span>Document officiel BTS SIO - Session 2025</span>
+                    <span data-lang-key="official-document">
+                        <span data-lang="fr">Document officiel BTS SIO - Session 2025</span>
+                        <span data-lang="en" style="display: none;">Official BTS SIO Document - Session 2025</span>
+                    </span>
                 </div>
 
                 <!-- Informations du document -->
@@ -953,22 +1279,40 @@
                     <div class="info-grid">
                         <div class="info-item">
                             <div class="info-icon">👤</div>
-                            <span class="info-label">Candidat :</span>
+                            <span class="info-label" data-lang-key="candidate-label">
+                                <span data-lang="fr">Candidat :</span>
+                                <span data-lang="en" style="display: none;">Candidate:</span>
+                            </span>
                             <span>BOUALI Adam (N° 02148744857)</span>
                         </div>
                         <div class="info-item">
                             <div class="info-icon">🏫</div>
-                            <span class="info-label">Centre :</span>
-                            <span>Lycée de la venise verte - NIORT</span>
+                            <span class="info-label" data-lang-key="center-label">
+                                <span data-lang="fr">Centre :</span>
+                                <span data-lang="en" style="display: none;">Center:</span>
+                            </span>
+                            <span data-lang-key="school-name">
+                                <span data-lang="fr">Lycée de la venise verte - NIORT</span>
+                                <span data-lang="en" style="display: none;">Lycée de la venise verte - NIORT</span>
+                            </span>
                         </div>
                         <div class="info-item">
                             <div class="info-icon">🎯</div>
-                            <span class="info-label">Option :</span>
-                            <span>SLAM (Solutions Logicielles et Applications Métiers)</span>
+                            <span class="info-label" data-lang-key="option-label">
+                                <span data-lang="fr">Option :</span>
+                                <span data-lang="en" style="display: none;">Option:</span>
+                            </span>
+                            <span data-lang-key="option-slam">
+                                <span data-lang="fr">SLAM (Solutions Logicielles et Applications Métiers)</span>
+                                <span data-lang="en" style="display: none;">SLAM (Software Solutions and Business Applications)</span>
+                            </span>
                         </div>
                         <div class="info-item">
                             <div class="info-icon">📅</div>
-                            <span class="info-label">Session :</span>
+                            <span class="info-label" data-lang-key="session-label">
+                                <span data-lang="fr">Session :</span>
+                                <span data-lang="en" style="display: none;">Session:</span>
+                            </span>
                             <span>2025</span>
                         </div>
                     </div>
@@ -976,8 +1320,14 @@
 
                 <!-- Options d'affichage -->
                 <div class="display-options">
-                    <button class="option-btn active" data-action="show-image">Affichage Image</button>
-                    <button class="option-btn" data-action="show-pdf">Affichage PDF</button>
+                    <button class="option-btn active" data-action="show-image" data-lang-key="image-display">
+                        <span data-lang="fr">Affichage Image</span>
+                        <span data-lang="en" style="display: none;">Image Display</span>
+                    </button>
+                    <button class="option-btn" data-action="show-pdf" data-lang-key="pdf-display">
+                        <span data-lang="fr">Affichage PDF</span>
+                        <span data-lang="en" style="display: none;">PDF Display</span>
+                    </button>
                 </div>
 
                 <!-- Conteneur du tableau -->
@@ -1008,13 +1358,19 @@
                                 <polyline points="7,10 12,15 17,10"/>
                                 <line x1="12" y1="15" x2="12" y2="3"/>
                             </svg>
-                            Télécharger le PDF
+                            <span data-lang-key="download-pdf">
+                                <span data-lang="fr">Télécharger le PDF</span>
+                                <span data-lang="en" style="display: none;">Download PDF</span>
+                            </span>
                         </a>
                         <button data-action="open-modal" class="action-btn btn-fullscreen">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
                             </svg>
-                            Voir en plein écran
+                            <span data-lang-key="fullscreen">
+                                <span data-lang="fr">Voir en plein écran</span>
+                                <span data-lang="en" style="display: none;">View fullscreen</span>
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -1025,10 +1381,19 @@
                  =========================================== -->
             <section id="contact" class="contact">
                 <div class="section-content">
-                    <h2 class="section-title">Restons en Contact</h2>
-                    <p class="section-subtitle">
-                        N'hésitez pas à me contacter pour toute opportunité professionnelle, 
-                        collaboration ou simplement pour échanger sur les technologies web.
+                    <h2 class="section-title" data-lang-key="contact-title">
+                        <span data-lang="fr">Restons en Contact</span>
+                        <span data-lang="en" style="display: none;">Let's Stay in Touch</span>
+                    </h2>
+                    <p class="section-subtitle" data-lang-key="contact-subtitle">
+                        <span data-lang="fr">
+                            N'hésitez pas à me contacter pour toute opportunité professionnelle, 
+                            collaboration ou simplement pour échanger sur les technologies web.
+                        </span>
+                        <span data-lang="en" style="display: none;">
+                            Feel free to contact me for any professional opportunity, 
+                            collaboration or simply to discuss web technologies.
+                        </span>
                     </p>
                     
                     <div class="contact-container">
@@ -1054,7 +1419,10 @@
                                 </svg>
                             </div>
                             <div class="info-content">
-                                <h3>Téléphone</h3>
+                                <h3 data-lang-key="phone-title">
+                                    <span data-lang="fr">Téléphone</span>
+                                    <span data-lang="en" style="display: none;">Phone</span>
+                                </h3>
                                 <p><a href="tel:+33766418177" class="contact-link">+33 7 66 41 81 77</a></p>
                             </div>
                         </div>
@@ -1068,15 +1436,24 @@
                                 </svg>
                             </div>
                             <div class="info-content">
-                                <h3>Localisation</h3>
-                                <p>Niort, Nouvelle-Aquitaine<br>France</p>
+                                <h3 data-lang-key="location-title">
+                                    <span data-lang="fr">Localisation</span>
+                                    <span data-lang="en" style="display: none;">Location</span>
+                                </h3>
+                                <p data-lang-key="location-address">
+                                    <span data-lang="fr">Niort, Nouvelle-Aquitaine<br>France</span>
+                                    <span data-lang="en" style="display: none;">Niort, Nouvelle-Aquitaine<br>France</span>
+                                </p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Section réseaux sociaux -->
                     <div class="social-section">
-                        <h3 class="social-title">Retrouvez-moi sur</h3>
+                        <h3 class="social-title" data-lang-key="find-me-on">
+                            <span data-lang="fr">Retrouvez-moi sur</span>
+                            <span data-lang="en" style="display: none;">Find me on</span>
+                        </h3>
                         <div class="social-links">
                             <a href="https://www.linkedin.com/in/adam-bouali-069640329/" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
                                 <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
@@ -1099,10 +1476,19 @@
 
                     <!-- Call to Action -->
                     <div class="cta-section">
-                        <h3 class="cta-title">Besoin d'informations complémentaires ?</h3>
-                        <p class="cta-text">
-                            Je suis actuellement à la recherche d'opportunités en alternance 
-                            dans le domaine du développement web. N'hesitez pas à me contacter !
+                        <h3 class="cta-title" data-lang-key="need-info">
+                            <span data-lang="fr">Besoin d'informations complémentaires ?</span>
+                            <span data-lang="en" style="display: none;">Need additional information?</span>
+                        </h3>
+                        <p class="cta-text" data-lang-key="cta-description">
+                            <span data-lang="fr">
+                                Je suis actuellement à la recherche d'opportunités en alternance 
+                                dans le domaine du développement web. N'hesitez pas à me contacter !
+                            </span>
+                            <span data-lang="en" style="display: none;">
+                                I am currently looking for work-study opportunities 
+                                in the field of web development. Feel free to contact me!
+                            </span>
                         </p>
                         <div class="cta-buttons">
                             <a href="mailto:adam2005bouali@gmail.com?subject=Opportunité professionnelle" class="btn-primary">
@@ -1110,15 +1496,21 @@
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                                     <polyline points="22,6 12,13 2,6"/>
                                 </svg>
-                                Envoyer un email
+                                <span data-lang-key="send-email">
+                                    <span data-lang="fr">Envoyer un email</span>
+                                    <span data-lang="en" style="display: none;">Send an email</span>
+                                </span>
                             </a>
-                            <a href="./IMAGES/CV_Alternance-3.png" download="CV-BOUALI-Adam.pdf" class="btn-secondary">
+                            <a href="./IMAGES/Cv_Adam_Francais.pdf" download="CV-BOUALI-Adam-FR.pdf" class="btn-secondary">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                                     <polyline points="7,10 12,15 17,10"/>
                                     <line x1="12" y1="15" x2="12" y2="3"/>
                                 </svg>
-                                Télécharger CV
+                                <span data-lang-key="download-cv">
+                                    <span data-lang="fr">Télécharger CV</span>
+                                    <span data-lang="en" style="display: none;">Download CV</span>
+                                </span>
                             </a>
                         </div>
                     </div>
@@ -1154,61 +1546,82 @@
         const body = document.body;
 
         // ===========================================
-        // NOTIFICATION BILINGUE
+        // SYSTÈME DE TRADUCTION
         // ===========================================
-        function showLanguageNotification() {
-            const langNotification = document.getElementById('language-notification');
-            if (langNotification) {
-                setTimeout(() => {
-                    langNotification.classList.add('show');
-                }, 1500);
-            }
-        }
-
-        function closeLanguageNotification() {
-            const langNotification = document.getElementById('language-notification');
-            if (langNotification) {
-                langNotification.classList.remove('show');
-            }
-        }
-
-        function dismissLanguageNotification() {
-            closeLanguageNotification();
-        }
-
         function switchLanguage(lang) {
             currentLang = lang;
             
-            // Mettre à jour les boutons de langue
-            const langButtons = document.querySelectorAll('.lang-btn');
-            langButtons.forEach(btn => {
-                if (btn.dataset.lang === lang) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
+            // Mettre à jour le bouton de switch de langue
+            const languageSwitch = document.getElementById('languageSwitch');
+            const flagIcon = languageSwitch.querySelector('.flag-icon');
             
-            // Mettre à jour tous les textes
-            const langTargets = document.querySelectorAll('[data-lang-target]');
-            langTargets.forEach(target => {
-                const langElements = target.querySelectorAll('[data-lang]');
-                langElements.forEach(element => {
-                    if (element.dataset.lang === lang) {
-                        element.style.display = '';
-                        // Animation d'apparition
-                        element.style.opacity = '0';
-                        element.style.transform = 'translateY(10px)';
+            if (lang === 'fr') {
+                flagIcon.textContent = '🇬🇧';
+                document.documentElement.lang = 'fr';
+            } else {
+                flagIcon.textContent = '🇫🇷';
+                document.documentElement.lang = 'en';
+            }
+            
+            // Mettre à jour tous les textes traduits
+            const langElements = document.querySelectorAll('[data-lang-key]');
+            langElements.forEach(element => {
+                const spans = element.querySelectorAll('[data-lang]');
+                spans.forEach(span => {
+                    if (span.dataset.lang === lang) {
+                        span.style.display = '';
+                        // Animation d'apparition douce
+                        span.style.opacity = '0';
+                        span.style.transform = 'translateY(5px)';
                         setTimeout(() => {
-                            element.style.transition = 'all 0.3s ease';
-                            element.style.opacity = '1';
-                            element.style.transform = 'translateY(0)';
+                            span.style.transition = 'all 0.3s ease';
+                            span.style.opacity = '1';
+                            span.style.transform = 'translateY(0)';
                         }, 50);
                     } else {
-                        element.style.display = 'none';
+                        span.style.display = 'none';
                     }
                 });
             });
+            
+            // Mettre à jour les liens de téléchargement du CV
+            updateCVLinks(lang);
+            
+            // Stocker la préférence dans localStorage
+            localStorage.setItem('portfolioLanguage', lang);
+            
+            console.log('🌍 Langue changée vers:', lang.toUpperCase());
+        }
+
+        function updateCVLinks(lang) {
+            // Définir les chemins des CV selon la langue
+            const cvPaths = {
+                'fr': './IMAGES/Cv_Adam_Francais.pdf',
+                'en': './IMAGES/Cv_Adam_Anglais.pdf'
+            };
+            
+            const cvNames = {
+                'fr': 'CV-BOUALI-Adam-FR.pdf',
+                'en': 'CV-BOUALI-Adam-EN.pdf'
+            };
+            
+            // Mettre à jour tous les liens de téléchargement du CV
+            const cvLinks = document.querySelectorAll('a[download*="CV-BOUALI-Adam"]');
+            cvLinks.forEach(link => {
+                link.href = cvPaths[lang];
+                link.download = cvNames[lang];
+            });
+            
+            console.log('📄 CV mis à jour vers:', lang === 'fr' ? 'Version française' : 'English version');
+        }
+
+        function initializeLanguage() {
+            // Récupérer la préférence stockée ou utiliser la langue du navigateur
+            const savedLang = localStorage.getItem('portfolioLanguage');
+            const browserLang = navigator.language.startsWith('en') ? 'en' : 'fr';
+            const initialLang = savedLang || browserLang;
+            
+            switchLanguage(initialLang);
         }
 
         // ===========================================
@@ -1468,6 +1881,9 @@
         // INITIALISATION
         // ===========================================
         function init() {
+            // Initialiser la langue
+            initializeLanguage();
+            
             // Gestion du scroll
             window.addEventListener('scroll', updateActiveSection);
             
@@ -1480,30 +1896,12 @@
             
             // Gestion des événements de clic - délégation d'événements
             document.addEventListener('click', function(e) {
-                // Gestion des boutons de langue
-                if (e.target.closest('.lang-btn')) {
+                // Gestion du bouton de switch de langue
+                if (e.target.closest('#languageSwitch')) {
                     e.preventDefault();
                     e.stopPropagation();
-                    const button = e.target.closest('.lang-btn');
-                    const lang = button.dataset.lang;
-                    if (lang !== currentLang) {
-                        switchLanguage(lang);
-                    }
-                    return;
-                }
-                
-                // Gestion des boutons de notification
-                if (e.target.closest('[data-action="close-notification"]')) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    closeLanguageNotification();
-                    return;
-                }
-                
-                if (e.target.closest('[data-action="dismiss-notification"]')) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    dismissLanguageNotification();
+                    const newLang = currentLang === 'fr' ? 'en' : 'fr';
+                    switchLanguage(newLang);
                     return;
                 }
                 
@@ -1562,12 +1960,6 @@
                     }
                 }
                 
-                // Fermer notification en cliquant à l'extérieur
-                const langNotificationEl = document.getElementById('language-notification');
-                if (langNotificationEl && e.target === langNotificationEl) {
-                    closeLanguageNotification();
-                }
-                
                 // Gestion du modal
                 const modal = document.getElementById('imageModal');
                 if (modal && e.target === modal) {
@@ -1585,16 +1977,10 @@
                 }
             });
             
-            // Fermer modal, notification et sidebar avec Escape
+            // Fermer modal et sidebar avec Escape
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     closeModal();
-                    
-                    // Fermer notification avec Escape
-                    const langNotificationEl = document.getElementById('language-notification');
-                    if (langNotificationEl && langNotificationEl.classList.contains('show')) {
-                        closeLanguageNotification();
-                    }
                     
                     if (sidebar.classList.contains('open')) {
                         closeSidebar();
@@ -1617,13 +2003,7 @@
             sidebarOpen = false;
             sidebar.setAttribute('data-state', 'closed');
             
-            // Initialiser la langue par défaut
-            switchLanguage('fr');
-            
-            // Afficher la notification de langue
-            showLanguageNotification();
-            
-            console.log('🚀 Portfolio initialisé');
+            console.log('🚀 Portfolio avec système de traduction initialisé');
         }
 
         // Démarrage
