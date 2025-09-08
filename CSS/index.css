@@ -2903,3 +2903,556 @@ body {
 @keyframes fadeIn {
     to { opacity: 1; }
 }
+/* ===========================================
+   NOTIFICATION BILINGUE RESPONSIF CORRIGÉ
+   =========================================== */
+.language-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 1rem;
+}
+
+.language-notification.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.notification-content {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 1rem;
+    max-width: 420px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    animation: notificationSlideIn 0.4s ease-out;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    max-height: 90vh;
+}
+
+@keyframes notificationSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* En-tête amélioré */
+.notification-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem 0;
+    position: relative;
+}
+
+.notification-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: iconPulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.notification-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+    stroke-width: 2.5;
+}
+
+/* Sélecteur de langue amélioré */
+.language-selector {
+    display: flex;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 1.5rem;
+    padding: 0.2rem;
+    gap: 0.2rem;
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    min-height: 44px;
+    align-items: center;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    border-radius: 1.2rem;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    position: relative;
+    min-width: 60px;
+    min-height: 40px;
+    justify-content: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: rgba(59, 130, 246, 0.3);
+}
+
+.lang-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 1.2rem;
+}
+
+.lang-btn.active::before {
+    opacity: 1;
+}
+
+.lang-btn.active {
+    color: white;
+    transform: translateY(-1px);
+}
+
+.lang-btn:hover:not(.active) {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary);
+}
+
+.lang-btn:active {
+    transform: scale(0.95);
+}
+
+.flag-emoji {
+    font-size: 1.1em;
+    z-index: 1;
+    position: relative;
+}
+
+.lang-btn span:last-child {
+    z-index: 1;
+    position: relative;
+}
+
+.notification-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+    min-width: 44px;
+    min-height: 44px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.notification-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.6);
+    color: #ef4444;
+    transform: scale(1.1);
+}
+
+.notification-close:active {
+    transform: scale(0.9);
+}
+
+.notification-close svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Corps amélioré */
+.notification-body {
+    padding: 1rem 1.5rem 1.5rem;
+    text-align: center;
+}
+
+.notification-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.notification-text p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Footer amélioré */
+.notification-footer {
+    padding: 0 1.5rem 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-dismiss {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.9rem 2rem;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 48px;
+    min-width: 120px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.btn-dismiss::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-dismiss:hover::before {
+    left: 100%;
+}
+
+.btn-dismiss:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-dismiss:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ===========================================
+   RESPONSIVE MOBILE CORRIGÉ
+   =========================================== */
+
+/* Tablettes */
+@media (max-width: 768px) {
+    .language-notification {
+        align-items: flex-end; /* Au lieu de center */
+        padding-bottom: 37.5vh; /* Ajouter de l'espace en bas */
+    }
+
+    .notification-content {
+        max-width: none;
+        width: calc(100% - 2rem);
+        margin: 0 1rem;
+        max-height: calc(85vh - 2rem);
+        overflow-y: auto;
+    }
+    
+    .notification-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem 1.5rem 0;
+    }
+    
+    .language-selector {
+        position: static;
+        transform: none;
+        margin: 0;
+        width: fit-content;
+        padding: 0.4rem;
+        margin-top: -5.4rem; 
+        gap: 1.5rem;
+    }
+    
+    .notification-close {
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+    
+    .notification-body {
+        padding: 0.5rem 1.5rem 1.5rem;
+    }
+    
+    .notification-footer {
+        padding: 0 1.5rem 1.5rem;
+    }
+    
+    .notification-title {
+        font-size: 1.2rem;
+        word-break: break-word;
+    }
+    
+    .notification-text p {
+        font-size: 0.9rem;
+    }
+    
+    .btn-dismiss {
+        width: 100%;
+        max-width: 250px;
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+    .language-notification {
+        padding-top: 10vh;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .notification-content {
+        width: calc(100% - 1rem);
+        margin: 0 0.5rem;
+        border-radius: 0.75rem;
+        max-height: calc(80vh - 1rem);
+    }
+    
+    .notification-header {
+        padding: 2rem 1rem 0;
+        gap: 1rem;
+    }
+    
+    .notification-body {
+        padding: 0.5rem 1rem 1rem;
+    }
+    
+    .notification-footer {
+        padding: 0 1rem 1rem;
+    }
+    
+    .language-selector {
+        padding: 0.15rem;
+        gap: 0.15rem;
+        border-radius: 1.25rem;
+    }
+    
+    .lang-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+        min-width: 55px;
+        min-height: 36px;
+        border-radius: 1rem;
+    }
+    
+    .notification-close {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+        top: 0.75rem;
+        right: 0.75rem;
+    }
+    
+    .notification-close svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .btn-dismiss {
+        width: 100%;
+        max-width: none;
+        padding: 0.9rem 1rem;
+        font-size: 0.85rem;
+        border-radius: 1.25rem;
+    }
+    
+    .notification-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .notification-text p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 360px) {
+    .language-notification {
+        padding-top: 8vh;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
+    
+    .notification-content {
+        width: calc(100% - 0.5rem);
+        margin: 0 0.25rem;
+    }
+    
+    .notification-header,
+    .notification-body,
+    .notification-footer {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    
+    .notification-header {
+        padding-top: 1.5rem;
+    }
+    
+    .lang-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+        min-width: 50px;
+        min-height: 32px;
+    }
+    
+    .notification-close {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        min-height: 32px;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+    
+    .notification-title {
+        font-size: 1rem;
+    }
+    
+    .notification-text p {
+        font-size: 0.8rem;
+    }
+    
+    .btn-dismiss {
+        padding: 0.8rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Mode paysage sur mobile - centré */
+@media (max-height: 600px) and (orientation: landscape) {
+    .language-notification {
+        align-items: center;
+        padding: 1rem;
+    }
+    
+    .notification-content {
+        max-height: calc(100vh - 2rem);
+        width: min(100%, 400px);
+        overflow-y: auto;
+    }
+    
+    .notification-header {
+        padding: 1rem 1rem 0;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .language-selector {
+        position: static;
+        transform: none;
+        margin: 0;
+    }
+    
+    .notification-close {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-left: 1rem;
+    }
+    
+    .notification-body {
+        padding: 0.5rem 1rem;
+    }
+    
+    .notification-footer {
+        padding: 0 1rem 1rem;
+    }
+    
+    .btn-dismiss {
+        max-width: 200px;
+    }
+}
+
+/* Amélioration pour les écrans tactiles */
+@media (hover: none) {
+    .lang-btn:hover,
+    .notification-close:hover,
+    .btn-dismiss:hover {
+        transform: none;
+    }
+    
+    .lang-btn:active {
+        background: rgba(59, 130, 246, 0.2);
+        transform: scale(0.95);
+    }
+    
+    .notification-close:active {
+        background: rgba(239, 68, 68, 0.3);
+        transform: scale(0.9);
+    }
+    
+    .btn-dismiss:active {
+        transform: scale(0.98);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+}
+
+/* Amélioration pour l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+    .notification-content {
+        animation: none;
+    }
+    
+    .language-notification {
+        transition: opacity 0.2s ease;
+    }
+}
+
+/* États de focus pour l'accessibilité clavier */
+.lang-btn:focus,
+.notification-close:focus,
+.btn-dismiss:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
