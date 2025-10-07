@@ -245,21 +245,6 @@ Le portfolio respecte les standards WCAG 2.1 :
 - Changement de langue dynamique
 - Traduction côté client
 
-## 📸 Aperçu
-
-> 💡 **Suggestion** : Ajoutez des captures d'écran ici
-
-```markdown
-### Vue Desktop
-![Desktop](screenshots/desktop.png)
-
-### Vue Mobile
-![Mobile](screenshots/mobile.png)
-
-### Écran de Chargement
-![Loading](screenshots/loading.png)
-```
-
 ## 🚀 Roadmap & Améliorations Futures
 
 ### Phase 1 - Améliorations Immédiates
